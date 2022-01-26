@@ -1,0 +1,16 @@
+body {
+	background-image: linear-gradient(to right, #ffafbd, #ffc3a0);
+}
+
+.todo-list {
+	border-radius: 5px
+}
+
+.crossed-line {
+    text-decoration: line-through;
+}
+
+.content {
+display: inline-flex;
+}
+/*style={{paddingRight: '200px', paddingLeft: '200px'}*/
