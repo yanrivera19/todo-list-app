@@ -1,30 +1,28 @@
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
-// import {addTodo} from '../actions';
 import { Form, Field } from "react-final-form";
 
 const TodoForm = (props) => {
 	const isSignedIn = useSelector(state => state.auth.isSignedIn);
 
   	const renderError = ({ error, submitFailed }) => {
-
     	if (submitFailed && error) {
 	      	return (
-	        	<div className="ui mini red error message">
-	          		<div className="header">{error}</div>
+	        	<div className="ui mini red error message err-msg">
+	          		<div className="header" style={{fontSize: '15px', fontWeight: 'bold'}}>{error}</div>
 	        	</div>
 	      	);
-    	}
+    	};
   	};
  
   	const renderInput = ({ input, meta }) => {
-    	const className = `field ${meta.error && meta.submitFailed ? "error" : ""}`;
+    	const className = `field ${meta.error && meta.submitFailed ? "error" : ""} todo-form`;
 
 		return (			
   			<div className={className} style={{paddingBottom: '50px'}}>
       			<div className="ui action input">
-        			<input {...input} className="todo-input" placeholder="Add ToDo..." autoComplete="off" />
-        			<button className="ui button primary todo-input">{props.buttonLabel}</button>
+        			<input {...input} className="todo-input" placeholder="Add ToDo..." autoComplete="off" style={{fontSize: '20px'}} />
+        			<button className="ui compact button green todo-input" style={{fontSize: '17px'}}>{props.buttonLabel}</button>
         		</div>
         		{renderError(meta)}	
   			</div>
@@ -35,8 +33,6 @@ const TodoForm = (props) => {
     	props.onSubmit(formValues);
     	form.reset();
   	};
-
-  	console.log(props.initialValues)
  
   	return (
     	<Form
@@ -46,7 +42,7 @@ const TodoForm = (props) => {
         		const errors = {};
  
         		if (!formValues.todo) {
-          			errors.todo = "Enter a ToDo";
+          			errors.todo = "Add a valid ToDo";
         		}
 
         		return errors;
@@ -54,7 +50,7 @@ const TodoForm = (props) => {
       		render={({ handleSubmit }) => (
         		<form onSubmit={handleSubmit} className="ui form error">
         			{!isSignedIn ? null : (      			
-          				<Field name="todo" component={renderInput} /> 
+          				<Field name="todo" component={renderInput}/> 
           			)}
         		</form>
       		)}
@@ -63,29 +59,3 @@ const TodoForm = (props) => {
 };
  
 export default TodoForm;
-
-// 	const [todo, setTodo] = useState('');
-// 	// const todos = useSelector(state => state.todos);
-// 
-// 	const onSubmit = event => {
-// 		event.preventDefault();
-// 
-// 		props.addTodo(todo);
-// 		setTodo('');
-// 		//save todos to our reducers
-// 	}
-// 
-// 
-// 	return (
-// 		<form onSubmit={onSubmit} className="ui form">
-//   			<div className="field">
-// 			    <div className="ui action input">
-// 				  <input type="text" autoComplete="off" name="todo" onChange={e => setTodo(e.target.value)} placeholder="Add ToDo..." required/>
-// 				  <button onClick={onSubmit} className="ui button primary">Add</button>
-// 				</div>
-// 			</div>			
-// 		</form>
-// 	);
-// };
-
-// export default connect(null, {addTodo})(TodoForm);

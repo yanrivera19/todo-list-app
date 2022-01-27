@@ -7,23 +7,19 @@ import {addTodo} from '../actions';
 
 const HomePage = props => {
 	const isSignedIn = useSelector(state => state.auth.isSignedIn);
-	console.log(isSignedIn)
 	const buttonLabel = "Add";
-	
-	//onSubmit function to be passed to todoform
+
 	const onSubmit = formValues => {
 		props.addTodo(formValues)
-	}
-
-	//do logic here to display page only if user is signed in
+	};
 
 	return (
 		<>
 			<h1>ToDo List</h1>
 			<TodoForm buttonLabel={buttonLabel} onSubmit={onSubmit}/>
-			<TodoList/>
+			<TodoList />
 		</>
-	)
-}
+	);
+};
 
 export default connect(null, {addTodo})(HomePage);

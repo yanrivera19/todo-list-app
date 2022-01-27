@@ -1,27 +1,16 @@
 {
   "todos": [
     {
-      "todo": "hiiiii",
+      "todo": "cfcfcfcf",
       "userId": "113615609350974785657",
+      "completed": false,
       "id": 1
     },
     {
-      "todo": "hvghvghvj",
+      "todo": "x",
       "userId": "113615609350974785657",
       "completed": false,
       "id": 2
-    },
-    {
-      "todo": "hvhjvhjvg jbjbjbj",
-      "userId": "113615609350974785657",
-      "completed": false,
-      "id": 3
-    },
-    {
-      "todo": "bbbb",
-      "userId": "113615609350974785657",
-      "completed": false,
-      "id": 4
     }
   ]
 }

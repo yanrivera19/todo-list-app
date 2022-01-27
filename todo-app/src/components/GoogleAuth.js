@@ -4,7 +4,6 @@ import {signIn, signOut} from '../actions';
 
 const GoogleAuth = (props) => {
 	const isSignedIn = useSelector(state => state.auth.isSignedIn);
-	console.log(isSignedIn)
 	const auth = useRef('');
 
 	const onAuthChange = useCallback (
@@ -44,7 +43,7 @@ const GoogleAuth = (props) => {
 			return null;	
 		} else if (isSignedIn) {
 			return (
-				<button onClick={onSignOutClick} className="ui red google button google-btn">
+				<button onClick={onSignOutClick} className="ui compact red google button google-btn" style={{fontSize: '17px'}}>
 					<i className="google icon"/>
 					Sign Out
 				</button>
