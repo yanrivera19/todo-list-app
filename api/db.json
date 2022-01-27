@@ -12,28 +12,16 @@
       "id": 2
     },
     {
-      "todo": "vgvh",
+      "todo": "hvhjvhjvg jbjbjbj",
       "userId": "113615609350974785657",
       "completed": false,
       "id": 3
     },
     {
-      "todo": "bhvhv",
+      "todo": "bbbb",
       "userId": "113615609350974785657",
-      "completed": {
-        "todo": "bhvhv"
-      },
+      "completed": false,
       "id": 4
-    },
-    {
-      "todo": "hvvuvhy",
-      "userId": "113615609350974785657",
-      "id": 5
-    },
-    {
-      "todo": "jjgvgvhb",
-      "userId": "113615609350974785657",
-      "id": 6
     }
   ]
 }

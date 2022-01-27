@@ -39,7 +39,7 @@ export const checkTodo = (id, completed) => async dispatch => {
 export const addTodo = todo => async (dispatch, getState) => {
 	const {userId} = getState().auth
 
-	const response = await todos.post('/todos', {...todo, userId});
+	const response = await todos.post('/todos', {...todo, userId, completed: false});
 
 	dispatch({type: ADD_TODO, payload: response.data});
 };

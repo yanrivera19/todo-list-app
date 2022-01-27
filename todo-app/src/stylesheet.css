@@ -2,6 +2,18 @@ body {
 	background-image: linear-gradient(to right, #ffafbd, #ffc3a0);
 }
 
+h1 {
+	font-size: 70px;
+    color: white;
+    padding-bottom: 20px; 
+    text-align:center;
+    font-family: 'Poetsen One', sans-serif;
+    text-shadow: 1px 1px #fe4902, 
+                 3px 3px #fe4902, 
+                 4px 4px #fe4902; 
+
+}
+
 .todo-list {
 	border-radius: 5px
 }
@@ -11,6 +23,16 @@ body {
 }
 
 .content {
-display: inline-flex;
+	display: inline-flex;
 }
 /*style={{paddingRight: '200px', paddingLeft: '200px'}*/
+
+.google-btn, .todo-list, .todo-input {
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.4) !important;
+}
+
+@media only screen and (min-width: 991.98px) {
+	h1 {
+		font-size: 95px;
+	}
+}

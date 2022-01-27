@@ -21,10 +21,10 @@ const TodoForm = (props) => {
     	const className = `field ${meta.error && meta.submitFailed ? "error" : ""}`;
 
 		return (			
-  			<div className={className}>
+  			<div className={className} style={{paddingBottom: '50px'}}>
       			<div className="ui action input">
-        			<input {...input} placeholder="Add ToDo..." autoComplete="off" />
-        			<button className="ui button primary">{props.buttonLabel}</button>
+        			<input {...input} className="todo-input" placeholder="Add ToDo..." autoComplete="off" />
+        			<button className="ui button primary todo-input">{props.buttonLabel}</button>
         		</div>
         		{renderError(meta)}	
   			</div>

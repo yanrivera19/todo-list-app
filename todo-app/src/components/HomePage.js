@@ -19,6 +19,7 @@ const HomePage = props => {
 
 	return (
 		<>
+			<h1>ToDo List</h1>
 			<TodoForm buttonLabel={buttonLabel} onSubmit={onSubmit}/>
 			<TodoList/>
 		</>

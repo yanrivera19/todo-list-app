@@ -44,14 +44,14 @@ const GoogleAuth = (props) => {
 			return null;	
 		} else if (isSignedIn) {
 			return (
-				<button onClick={onSignOutClick} className="ui red google button">
+				<button onClick={onSignOutClick} className="ui red google button google-btn">
 					<i className="google icon"/>
 					Sign Out
 				</button>
 			);
 		} else {
 			return (
-				<button onClick={onSignInClick} className="ui red google button">
+				<button onClick={onSignInClick} className="ui red google button google-btn">
 					<i className="google icon"/>
 					Sign In with Google
 				</button>

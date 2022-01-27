@@ -22,14 +22,12 @@ const TodoList = (props) => {
 
 	const checkTodoOnClick = (todo, todoId) => {
 		console.log(todo, todoId)
-		console.log(todo.completed)
-		return todo.completed === true		
+		if (todo.completed === false) {
+			props.checkTodo(todoId, {completed: true})
+		} else {
+			props.checkTodo(todoId, {completed: false})
+		}		
 	};
-
-	// const deletTodo = (id) => {
-	// 	props.deleteTodo(id)
-	// }
-
 
 	const renderEditDeleteBtns = todo => {
 		if (todo.userId === currentUserId) {
@@ -60,7 +58,7 @@ const TodoList = (props) => {
 
 	const renderList = Object.values(todos).map(todo => {
 		return (			
-			<div className="item todo-list" key={todo.id} style={{ backgroundColor:'white'}}>
+			<div className="item todo-list" key={todo.id} style={{ backgroundColor:'white', marginBottom: '12px'}}>
 				{renderEditDeleteBtns(todo)}
 		    	<div className=" content">
 					{renderCheckBtn(todo)}
