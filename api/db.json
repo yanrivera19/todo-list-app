@@ -1,16 +1,10 @@
 {
   "todos": [
     {
-      "todo": "cfcfcfcf",
+      "todo": "First ToDo!",
       "userId": "113615609350974785657",
       "completed": false,
       "id": 1
-    },
-    {
-      "todo": "x",
-      "userId": "113615609350974785657",
-      "completed": false,
-      "id": 2
     }
   ]
 }
