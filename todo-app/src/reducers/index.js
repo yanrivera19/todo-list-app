@@ -4,6 +4,5 @@ import {todosReducer, completedTodoReducer} from './todosReducer';
 
 export default combineReducers({
 	auth: authReducer ,
-	todos: todosReducer,
-	completed: completedTodoReducer
+	todos: todosReducer
 });

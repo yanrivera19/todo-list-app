@@ -6,9 +6,9 @@ import { Form, Field } from "react-final-form";
 const TodoForm = (props) => {
 	const isSignedIn = useSelector(state => state.auth.isSignedIn);
 
-  	const renderError = ({ error, touched }) => {
+  	const renderError = ({ error, submitFailed }) => {
 
-    	if (touched && error) {
+    	if (submitFailed && error) {
 	      	return (
 	        	<div className="ui mini red error message">
 	          		<div className="header">{error}</div>
@@ -18,10 +18,9 @@ const TodoForm = (props) => {
   	};
  
   	const renderInput = ({ input, meta }) => {
-    	const className = `field ${meta.error && meta.touched ? "error" : ""}`;
-	
-		return (
-			
+    	const className = `field ${meta.error && meta.submitFailed ? "error" : ""}`;
+
+		return (			
   			<div className={className}>
       			<div className="ui action input">
         			<input {...input} placeholder="Add ToDo..." autoComplete="off" />
@@ -29,12 +28,12 @@ const TodoForm = (props) => {
         		</div>
         		{renderError(meta)}	
   			</div>
-
 		);
   	};
  
-  	const onSubmit = (formValues) => {
+  	const onSubmit = (formValues, form) => {
     	props.onSubmit(formValues);
+    	form.reset();
   	};
 
   	console.log(props.initialValues)

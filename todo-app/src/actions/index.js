@@ -22,18 +22,24 @@ export const signOut = () => {
 		type: SIGN_OUT
 	};
 };
+// 
+// export const checkTodo = (id, checkedTodo) => {
+// 	return {
+// 		type: CHECK_TODO,
+// 		payload: id, checkedTodo
+// 	};
+// };
 
-export const checkTodo = (id, checkedTodo) => {
-	return {
-		type: CHECK_TODO,
-		payload: id, checkedTodo
-	};
-};
+export const checkTodo = (id, completed) => async dispatch => {
+	const response = await todos.patch(`/todos/${id}`, completed);
+
+	dispatch({type: EDIT_TODO, payload: response.data});
+};	
 
 export const addTodo = todo => async (dispatch, getState) => {
 	const {userId} = getState().auth
-	const {completed} = getState().completed
-	const response = await todos.post('/todos', {...todo, userId, completed});
+
+	const response = await todos.post('/todos', {...todo, userId});
 
 	dispatch({type: ADD_TODO, payload: response.data});
 };

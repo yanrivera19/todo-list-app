@@ -4,7 +4,7 @@ import {fetchTodos, deleteTodo, checkTodo} from '../actions';
 import {Link} from 'react-router-dom';
 
 const TodoList = (props) => {
-	const [check, setCheck] = useState(false)
+	// const [check, setCheck] = useState(false)
 	const todos = useSelector(state => state.todos);
 	const isSignedIn = useSelector(state => state.auth.isSignedIn);
 	const currentUserId = useSelector(state => state.auth.userId);
@@ -22,11 +22,8 @@ const TodoList = (props) => {
 
 	const checkTodoOnClick = (todo, todoId) => {
 		console.log(todo, todoId)
-		if (todo.completed === false) {
-			props.checkTodo(todoId, true)
-		} else {
-			props.checkTodo(todoId, false)
-		}		
+		console.log(todo.completed)
+		return todo.completed === true		
 	};
 
 	// const deletTodo = (id) => {
