@@ -21,7 +21,7 @@ const TodoForm = (props) => {
 		return (			
   			<div className={className} style={{paddingBottom: '50px'}}>
       			<div className="ui action input">
-        			<input {...input} className="todo-input" placeholder="Add ToDo..." autoComplete="off" style={{fontSize: '20px'}} />
+        			<input {...input} className="todo-input" placeholder="Add a ToDo..." autoComplete="off" style={{fontSize: '20px'}} />
         			<button className="ui compact button green todo-input" style={{fontSize: '17px'}}>{props.buttonLabel}</button>
         		</div>
         		{renderError(meta)}	
