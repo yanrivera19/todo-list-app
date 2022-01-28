@@ -17,7 +17,7 @@ const TodoForm = (props) => {
  
   	const renderInput = ({ input, meta }) => {
     	const className = `field ${meta.error && meta.submitFailed ? "error" : ""} todo-form`;
-    	const autofocus = false;
+    	let autofocus = false;
 
     	if (props.initialValues) {
     		autofocus = true;
