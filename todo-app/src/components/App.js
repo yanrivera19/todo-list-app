@@ -8,10 +8,10 @@ const App = () => {
     return (
         <div className="app ui container">
             <Header/>
-                <Routes>
-                    <Route path={'/'} element={<HomePage/>}/>
-                    <Route path={'/edit/:todoId'} element={<TodoEdit/>}/>
-                </Routes>
+            <Routes>
+                <Route path={'/'} element={<HomePage/>}/>
+                <Route path={'/edit/:todoId'} element={<TodoEdit/>}/>
+            </Routes>
         </div>
     );
 };
