@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {connect, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
-import _ from 'lodash';
 import {editTodo, fetchTodo} from '../actions';
 import TodoForm from './TodoForm';
 
@@ -10,7 +9,7 @@ const TodoEdit = (props) => {
 		
 	useEffect(()=> {
 		props.fetchTodo(todoId);
-	}, [])
+	}, [props, todoId])
 
 	const selectedTodo = useSelector(state => state.todos[todoId]);	
 	const buttonLabel = "Update";

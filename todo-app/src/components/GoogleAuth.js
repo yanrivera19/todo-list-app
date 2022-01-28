@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react';
+import React, {useEffect, useRef, useCallback} from 'react';
 import {connect, useSelector} from 'react-redux';
 import {signIn, signOut} from '../actions';
 
@@ -14,7 +14,7 @@ const GoogleAuth = (props) => {
 				props.signOut();
 			}
 		},
-		[props.signIn, props.signOut]
+		[props]
 	);
 
 	useEffect(() => {

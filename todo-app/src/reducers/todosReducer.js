@@ -27,15 +27,3 @@ export const todosReducer = (state = {}, action) => {
 	}
 };
 
-
-
-// export const completedTodoReducer = (state = {}, action) => {
-// 	switch (action.type) {
-// 		case CHECK_TODO:
-// 			return {...state, completed: action.payload.id};
-// 		default:
-// 			return state;	
-// 	}
-// };
-
-

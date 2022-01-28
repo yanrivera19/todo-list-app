@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {connect, useSelector} from 'react-redux'
 import {fetchTodos, deleteTodo, checkTodo} from '../actions';
 import {Link} from 'react-router-dom';
@@ -14,7 +14,7 @@ const TodoList = (props) => {
 		} else {
 			props.fetchTodos();
 		}
-	},[])
+	},[props, isSignedIn])
 
 	const checkTodoOnClick = (todo, todoId) => {
 		console.log(todo, todoId)
