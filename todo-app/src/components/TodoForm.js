@@ -17,11 +17,16 @@ const TodoForm = (props) => {
  
   	const renderInput = ({ input, meta }) => {
     	const className = `field ${meta.error && meta.submitFailed ? "error" : ""} todo-form`;
+    	const autofocus = false;
+
+    	if (props.initialValues) {
+    		autofocus = true;
+    	};
 
 		return (			
   			<div className={className} style={{paddingBottom: '50px'}}>
       			<div className="ui action input">
-        			<input {...input} className="todo-input" placeholder="Add a ToDo..." autoComplete="off" style={{fontSize: '20px'}} />
+        			<input {...input} autoFocus={autofocus} className="todo-input" placeholder="Add a ToDo..." autoComplete="off" style={{fontSize: '20px'}} />
         			<button className="ui compact button green todo-input" style={{fontSize: '17px'}}>{props.buttonLabel}</button>
         		</div>
         		{renderError(meta)}	
@@ -48,7 +53,7 @@ const TodoForm = (props) => {
         		return errors;
       		}}
       		render={({ handleSubmit }) => (
-        		<form onSubmit={handleSubmit} className="ui form error">
+        		<form onSubmit={handleSubmit} spellCheck="false" className="ui form error">
         			{!isSignedIn ? null : (      			
           				<Field name="todo" component={renderInput}/> 
           			)}
