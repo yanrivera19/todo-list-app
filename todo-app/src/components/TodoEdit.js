@@ -1,21 +1,21 @@
-import React, {useEffect} from 'react';
-import {connect, useSelector} from 'react-redux';
-import {useParams} from 'react-router-dom';
-import {editTodo, fetchTodo} from '../actions';
-import TodoForm from './TodoForm';
+import React, { useEffect } from "react";
+import { connect, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { editTodo, fetchTodo } from "../actions";
+import TodoForm from "./TodoForm";
 
 const TodoEdit = (props) => {
-	const {todoId} = useParams();
-		
-	useEffect(()=> {
-		props.fetchTodo(todoId);
-	}, [props, todoId])
+	const { todoId } = useParams();
 
-	const selectedTodo = useSelector(state => state.todos[todoId]);	
+	useEffect(() => {
+		props.fetchTodo(todoId);
+	}, [props, todoId]);
+
+	const selectedTodo = useSelector((state) => state.todos[todoId]);
 	const buttonLabel = "Update";
 
-	const onSubmit = formValues => {
-		console.log(formValues)
+	const onSubmit = (formValues) => {
+		console.log(formValues);
 		props.editTodo(todoId, formValues);
 	};
 
@@ -24,15 +24,19 @@ const TodoEdit = (props) => {
 			<h1>ToDo List</h1>
 			{!selectedTodo ? (
 				<div className="ui segment">
-			  	<div className="ui active inverted dimmer">
-			    	<div className="ui text loader">Loading...</div>
-			  	</div>
-			</div>
+					<div className="ui active inverted dimmer">
+						<div className="ui text loader">Loading...</div>
+					</div>
+				</div>
 			) : (
-				<TodoForm initialValues={{todo: selectedTodo.todo}} buttonLabel={buttonLabel} onSubmit={onSubmit}/>
+				<TodoForm
+					initialValues={{ todo: selectedTodo.todo }}
+					buttonLabel={buttonLabel}
+					onSubmit={onSubmit}
+				/>
 			)}
-		</div>	
+		</div>
 	);
 };
 
-export default connect(null, {editTodo, fetchTodo})(TodoEdit);
+export default connect(null, { editTodo, fetchTodo })(TodoEdit);

@@ -1,41 +1,43 @@
 body {
-	background-image: linear-gradient(to right, #ffafbd, #ffc3a0);
+	background: linear-gradient(to right, #ffafbd, #ffc3a0);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 h1 {
 	font-size: 70px;
-    color: white;
-    padding-bottom: 20px; 
-    text-align:center;
-    font-family: 'Poetsen One', sans-serif !important;
-    text-shadow: 1px 1px #fe4902, 
-                 3px 3px #fe4902, 
-                 4px 4px #fe4902,
-                 0 3px 10px rgb(0 0 0 / 0.7); 
+	color: white;
+	padding-bottom: 20px;
+	text-align: center;
+	font-family: "Poetsen One", sans-serif !important;
+	text-shadow: 1px 1px #fe4902, 3px 3px #fe4902, 4px 4px #fe4902,
+		0 3px 10px rgb(0 0 0 / 0.7);
 }
 
 .todo-list {
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 
 .todo-list {
 	margin: auto !important;
-  	width: 90%;
+	width: 90%;
 }
 
-.icon-btn { 
-transition: all .2s ease-in-out; 
+.icon-btn {
+	transition: all 0.2s ease-in-out;
 }
 
-.icon-btn:hover { 
-transform: scale(1.2); 
+.icon-btn:hover {
+	transform: scale(1.2);
 }
 
 .crossed-line {
-    text-decoration: line-through;
+	text-decoration: line-through;
 }
 
-.google-btn, .todo-list, .todo-input {
+.google-btn,
+.todo-list,
+.todo-input {
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.5) !important;
 }
 
@@ -48,7 +50,7 @@ transform: scale(1.2);
 
 .todo-form {
 	margin: auto !important;
-	width: 95%;
+	width: 85%;
 }
 
 @media only screen and (min-width: 991.98px) {
@@ -68,5 +70,29 @@ transform: scale(1.2);
 	.todo-form {
 		margin: auto !important;
 		width: 70%;
+	}
+}
+
+@media only screen and (max-width: 419px) {
+	h1 {
+		font-size: 60px;
+	}
+
+	.todo-form {
+		margin: auto !important;
+		width: 95%;
+	}
+
+	.todo-input {
+		font-size: 15px !important;
+	}
+
+	.todo-item,
+	.icon-btn {
+		font-size: 20px !important;
+	}
+
+	.google-btn {
+		font-size: 15px !important;
 	}
 }

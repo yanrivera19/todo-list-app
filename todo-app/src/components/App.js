@@ -1,16 +1,19 @@
-import React from 'react';
-import {Routes, Route} from 'react-router-dom';
-import Header from './Header';
-import HomePage from './HomePage';
-import TodoEdit from './TodoEdit';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Header from "./Header";
+import HomePage from "./HomePage";
+import TodoEdit from "./TodoEdit";
 
 const App = () => {
     return (
-        <div className="app ui container">
-            <Header/>
+        <div
+            className="app ui container"
+            style={{ paddingTop: "30px", paddingBottom: "50px" }}
+        >
+            <Header />
             <Routes>
-                <Route path={'/'} element={<HomePage/>}/>
-                <Route path={'/edit/:todoId'} element={<TodoEdit/>}/>
+                <Route path={"/"} element={<HomePage />} />
+                <Route path={"/edit/:todoId"} element={<TodoEdit />} />
             </Routes>
         </div>
     );
