@@ -8,7 +8,7 @@ You can sign in to your Google account by clicking the 'Sign In with Google' but
 
 ---
 
-##Technologies Used
+## Technologies Used
 
 -   React
 -   Redux
@@ -17,7 +17,7 @@ You can sign in to your Google account by clicking the 'Sign In with Google' but
 -   JSON Server (back-end/database)
 -   OAuth 2.0 (authentication)
 
-##Quick Start
+## Quick Start
 
 1. If you don't have a Google account, you can create one [here](https://www.google.com/account/about/).
 2. Clone the app onto your local machine and open it up.
