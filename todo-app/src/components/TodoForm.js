@@ -37,7 +37,7 @@ const TodoForm = (props) => {
 						{...input}
 						autoFocus={autofocus}
 						className="todo-input"
-						placeholder="Add a ToDo..."
+						placeholder="Add a to-do..."
 						autoComplete="off"
 						style={{ fontSize: "18px" }}
 					/>
@@ -66,7 +66,7 @@ const TodoForm = (props) => {
 				const errors = {};
 
 				if (!formValues.todo) {
-					errors.todo = "Add a valid ToDo";
+					errors.todo = "Add a valid to-do";
 				}
 
 				return errors;
