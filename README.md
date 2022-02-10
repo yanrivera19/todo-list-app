@@ -10,9 +10,9 @@ In the input field, you can type in your to-do's and add them to the list by eit
 
 Each to-do on the list has three different buttons:
 
--   The <span style="color:blue">**blue**</span> check mark icon, whenever clicked, will add a line through the to-do; indicating that the to-do was completed.
--   The <span style="color:yellow">**yellow**</span> note button, when icon, redirects you to a page where the Todo in which the clicked button was, can be edited/updated. When you click the 'Update' button, you will be redirected to the home page where the list of to-do's is displayed. The update made to the to-do will be reflected on the page.
--   The <span style="color:red">**red**</span> trash icon, when clicked, deletes the to-do.
+-   The **blue** check mark icon, when clicked, will add a line through the to-do; indicating that the to-do was completed.
+-   The **yellow** note icon, when clicked, redirects you to a page where the to-do in which the clicked button was, can be edited/updated. When you click the 'Update' button, you will be redirected to the home page where the list of to-do's is displayed. The update made to the to-do will be reflected on the page.
+-   The **red** trash icon, when clicked, deletes the to-do.
 
 ---
 
@@ -32,4 +32,4 @@ Each to-do on the list has three different buttons:
 3. Open two different terminals (console) and select the cloned app on each.
 4. Select the **todo-app** folder in one terminal and the **api** folder in the other.
 5. Type in the command <code>npm install</code> on each terminal.
-6. After that command is done on both terminals, type in the command <code>npm start</code> on each. The app will then open in the browser on localhost:3000 and the server will be up and running.
+6. After that command is done running on both terminals, type in the command <code>npm start</code> on each. The app will then open in the browser on localhost:3000 and the server will be up and running.
