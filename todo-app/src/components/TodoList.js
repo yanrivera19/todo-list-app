@@ -17,7 +17,6 @@ const TodoList = (props) => {
 	}, [props, isSignedIn]);
 
 	const checkTodoOnClick = (todo, todoId) => {
-		console.log(todo, todoId);
 		if (todo.completed === false) {
 			props.checkTodo(todoId, { completed: true });
 		} else {

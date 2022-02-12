@@ -15,7 +15,6 @@ const TodoEdit = (props) => {
 	const buttonLabel = "Update";
 
 	const onSubmit = (formValues) => {
-		console.log(formValues);
 		props.editTodo(todoId, formValues);
 	};
 

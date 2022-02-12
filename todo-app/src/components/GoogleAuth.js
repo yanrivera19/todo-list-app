@@ -7,8 +7,8 @@ const GoogleAuth = (props) => {
 	const auth = useRef("");
 
 	const onAuthChange = useCallback(
-		(isSignedIn) => {
-			if (isSignedIn) {
+		(isUserSignedIn) => {
+			if (isUserSignedIn) {
 				props.signIn(auth.current.currentUser.get().getId());
 			} else {
 				props.signOut();
@@ -18,17 +18,29 @@ const GoogleAuth = (props) => {
 	);
 
 	useEffect(() => {
+		/*The following loads up the client portion of the gapi (Google API) library. 
+		But because it takes some time to load, we use a callback function 
+		for when the loading has finished.*/
 		window.gapi.load("client:auth2", () => {
+			/*With the following we initialize the gapi library with our OAuth client Id. 
+			We do this when the component is first rendered on screen.*/
 			window.gapi.client
 				.init({
 					clientId:
 						"539777620603-484nmhcejt9ni9v01f1k1j0v8kkslaan.apps.googleusercontent.com",
-					scope: "email",
+					scope: "email", //This email is what we want to have access to
 				})
 				.then(() => {
-					auth.current = window.gapi.auth2.getAuthInstance(); //creates instance of googleobject and stores it in this variable
-					onAuthChange(auth.current.isSignedIn.get()); //when component first renders, we get the current status of user
-					auth.current.isSignedIn.listen(onAuthChange); //listens to any change in the users status and by calling onAuthChange, we get the current status of user
+					//This 'then' will run when the gapi library has been initialized
+
+					/*The following getAuthInstance() returns the GoogleAuth object and stores it in 
+					the auth ref, so that we can have access to its value anywhere in this component. 
+					This GoogleAuth object contains all the methods that will be used to manipulate the 
+					user's authentication status (signIn, signOut, etc.)*/
+					auth.current = window.gapi.auth2.getAuthInstance();
+
+					//The following helps us figure out if the user is currently signed in or not
+					onAuthChange(auth.current.isSignedIn.get());
 				});
 		});
 	}, [onAuthChange]);
