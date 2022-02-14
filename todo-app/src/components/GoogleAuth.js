@@ -41,6 +41,11 @@ const GoogleAuth = (props) => {
 
 					//The following helps us figure out if the user is currently signed in or not
 					onAuthChange(auth.current.isSignedIn.get());
+
+					/*The following tracks any change in the user's authentication status and updates 
+					the isSignedIn property of the gapi object to either true or false. This reflects
+					the user's authentication status in the UI (sign in button).*/
+					auth.current.isSignedIn.listen(onAuthChange);
 				});
 		});
 	}, [onAuthChange]);
