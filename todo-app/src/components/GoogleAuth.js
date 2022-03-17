@@ -76,7 +76,7 @@ const GoogleAuth = (props) => {
 			return (
 				<button
 					onClick={onSignInClick}
-					className="ui red google button google-btn"
+					className="ui compact red google button google-btn"
 					style={{ fontSize: "17px" }}
 				>
 					<i className="google icon" />

@@ -57,8 +57,8 @@ const TodoList = (props) => {
 			return (
 				<i
 					disabled
-					className="ui left floated check circle outline icon large"
-					style={{ marginTop: "4px", marginRight: "5px" }}
+					className="ui left floated check circle outline icon large icon-btn"
+					style={{ marginTop: "6px", marginRight: "5px" }}
 				></i>
 			);
 		}
@@ -69,7 +69,7 @@ const TodoList = (props) => {
 			<div
 				className="item todo-item"
 				key={todo.id}
-				style={{ backgroundColor: "white" }}
+				style={{ backgroundColor: "white", marginBottom: "10px" }}
 			>
 				{renderEditDeleteBtns(todo)}
 				<div className=" content">

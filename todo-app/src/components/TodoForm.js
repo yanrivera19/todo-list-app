@@ -25,14 +25,21 @@ const TodoForm = (props) => {
 			meta.error && meta.submitFailed ? "error" : ""
 		} todo-form`;
 		let autofocus = false;
+		let readOnly = false;
+		let value;
 
 		if (props.initialValues) {
 			autofocus = true;
 		}
 
+		if (!isSignedIn) {
+			readOnly = true;
+			value = "";
+		}
+
 		return (
 			<div className={className} style={{ paddingBottom: "50px" }}>
-				<div className="ui action input">
+				<div className="ui fluid action icon input ">
 					<input
 						{...input}
 						autoFocus={autofocus}
@@ -40,12 +47,15 @@ const TodoForm = (props) => {
 						placeholder="Add a to-do..."
 						autoComplete="off"
 						style={{ fontSize: "18px" }}
+						readOnly={readOnly}
+						value={value}
 					/>
+
 					<button
 						className="ui compact button green todo-input"
 						style={{ fontSize: "18px" }}
 					>
-						{props.buttonLabel}
+						<span className="form-btn">{props.buttonLabel}</span>
 					</button>
 				</div>
 				{renderError(meta)}
@@ -54,8 +64,10 @@ const TodoForm = (props) => {
 	};
 
 	const onSubmit = (formValues, form) => {
-		props.onSubmit(formValues);
-		form.reset();
+		if (isSignedIn) {
+			props.onSubmit(formValues);
+			form.reset();
+		}
 	};
 
 	return (
@@ -65,7 +77,7 @@ const TodoForm = (props) => {
 			validate={(formValues) => {
 				const errors = {};
 
-				if (!formValues.todo) {
+				if (!formValues.todo && isSignedIn) {
 					errors.todo = "Add a valid to-do";
 				}
 
@@ -77,9 +89,7 @@ const TodoForm = (props) => {
 					spellCheck="false"
 					className="ui form error"
 				>
-					{!isSignedIn ? null : (
-						<Field name="todo" component={renderInput} />
-					)}
+					<Field name="todo" component={renderInput} />
 				</form>
 			)}
 		/>

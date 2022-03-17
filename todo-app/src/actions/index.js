@@ -26,7 +26,6 @@ export const signOut = () => {
 
 export const checkTodo = (id, completed) => async (dispatch) => {
 	const response = await todos.patch(`/todos/${id}`, completed);
-	console.log(response.data);
 
 	dispatch({ type: CHECK_TODO, payload: response.data });
 };
@@ -57,7 +56,7 @@ export const fetchTodos = () => async (dispatch) => {
 
 export const editTodo = (id, todo) => async (dispatch) => {
 	const response = await todos.patch(`/todos/${id}`, todo);
-	console.log(response.data);
+
 	dispatch({ type: EDIT_TODO, payload: response.data });
 	history.push("/");
 };
