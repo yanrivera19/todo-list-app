@@ -26,7 +26,6 @@ const TodoForm = (props) => {
 		} todo-form`;
 		let autofocus = false;
 		let readOnly = false;
-		let value;
 
 		if (props.initialValues) {
 			autofocus = true;
@@ -34,7 +33,6 @@ const TodoForm = (props) => {
 
 		if (!isSignedIn) {
 			readOnly = true;
-			value = "";
 		}
 
 		return (
@@ -48,7 +46,6 @@ const TodoForm = (props) => {
 						autoComplete="off"
 						style={{ fontSize: "18px" }}
 						readOnly={readOnly}
-						value={value}
 					/>
 
 					<button
