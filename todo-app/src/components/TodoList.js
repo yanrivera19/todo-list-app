@@ -37,7 +37,7 @@ const TodoList = (props) => {
 					<i
 						onClick={() => props.deleteTodo(todo.id)}
 						className="trash alternate outline red icon large icon-btn"
-						style={{ marginTop: "6px" }}
+						style={{ marginTop: "6px", cursor: "pointer" }}
 					></i>
 				</div>
 			);
@@ -50,7 +50,11 @@ const TodoList = (props) => {
 				<i
 					onClick={() => checkTodoOnClick(todo, todo.id)}
 					className="ui left floated check circle outline blue icon large icon-btn"
-					style={{ marginTop: "6px", marginRight: "5px" }}
+					style={{
+						marginTop: "6px",
+						marginRight: "5px",
+						cursor: "pointer",
+					}}
 				></i>
 			);
 		} else {

@@ -31,39 +31,59 @@ export const checkTodo = (id, completed) => async (dispatch) => {
 };
 
 export const addTodo = (todo) => async (dispatch, getState) => {
-	const { userId } = getState().auth;
+	try {
+		const { userId } = getState().auth;
 
-	const response = await todos.post("/todos", {
-		...todo,
-		userId,
-		completed: false,
-	});
+		const response = await todos.post("/todos", {
+			...todo,
+			userId,
+			completed: false,
+		});
 
-	dispatch({ type: ADD_TODO, payload: response.data });
+		dispatch({ type: ADD_TODO, payload: response.data });
+	} catch (error) {
+		console.log(error.response);
+	}
 };
 
 export const fetchTodo = (id) => async (dispatch) => {
-	const response = await todos.get(`/todos/${id}`);
+	try {
+		const response = await todos.get(`/todos/${id}`);
 
-	dispatch({ type: FETCH_TODO, payload: response.data });
+		dispatch({ type: FETCH_TODO, payload: response.data });
+	} catch (error) {
+		console.log(error.response);
+	}
 };
 
 export const fetchTodos = () => async (dispatch) => {
-	const response = await todos.get("/todos");
+	try {
+		const response = await todos.get("/todos");
 
-	dispatch({ type: FETCH_TODOS, payload: response.data });
+		dispatch({ type: FETCH_TODOS, payload: response.data });
+	} catch (error) {
+		console.log(error.response);
+	}
 };
 
 export const editTodo = (id, todo) => async (dispatch) => {
-	const response = await todos.patch(`/todos/${id}`, todo);
+	try {
+		const response = await todos.patch(`/todos/${id}`, todo);
 
-	dispatch({ type: EDIT_TODO, payload: response.data });
-	history.push("/");
+		dispatch({ type: EDIT_TODO, payload: response.data });
+		history.push("/");
+	} catch (error) {
+		console.log(error.response);
+	}
 };
 
 export const deleteTodo = (id) => async (dispatch) => {
-	//no need for a response when deleting
-	await todos.delete(`/todos/${id}`);
+	try {
+		//no need for a response when deleting
+		await todos.delete(`/todos/${id}`);
 
-	dispatch({ type: DELETE_TODO, payload: id });
+		dispatch({ type: DELETE_TODO, payload: id });
+	} catch (error) {
+		console.log(error.response);
+	}
 };
