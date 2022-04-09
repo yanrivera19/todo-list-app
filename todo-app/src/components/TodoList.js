@@ -98,15 +98,16 @@ const TodoList = (props) => {
 	});
 
 	return (
-		<div
-			className={`${
-				isSignedIn === true ? "animated" : ""
-			} ui celled list todo-list`}
-		>
-			<AnimatePresence>
-				{renderList}
-			</AnimatePresence>
-		</div>
+		<>
+			{isSignedIn ? (
+				<div className="animated ui celled list todo-list"
+				>
+					<AnimatePresence>
+						{renderList}
+					</AnimatePresence>
+				</div>
+			) : null}		
+		</>
 	);
 };
 
