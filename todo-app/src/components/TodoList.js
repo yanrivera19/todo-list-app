@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { fetchTodos, deleteTodo, checkTodo } from "../actions";
 import { Link } from "react-router-dom";
+import {motion, AnimatePresence} from "framer-motion";
 
 const TodoList = (props) => {
 	const todos = useSelector((state) => state.todos);
 	const isSignedIn = useSelector((state) => state.auth.isSignedIn);
 	const currentUserId = useSelector((state) => state.auth.userId);
+	console.log(todos);
 
 	useEffect(() => {
 		if (isSignedIn === false) {
@@ -69,25 +71,29 @@ const TodoList = (props) => {
 	};
 
 	const renderList = Object.values(todos).map((todo) => {
-		return (
-			<div
-				className="item todo-item"
-				key={todo.id}
+		return (			
+			<motion.div
+	            key={todo.id}
+	            initial={{ x: 300, opacity: 0 }}
+			    animate={{ x: 0, opacity: 1 }}
+			    exit={{ x: -300, opacity: 0 }}
+	            layout
+	            className="item todo-item"
 				style={{ backgroundColor: "white", marginBottom: "10px" }}
-			>
-				{renderEditDeleteBtns(todo)}
-				<div className=" content">
-					{renderCheckBtn(todo)}
-					<p
-						className={`${
-							todo.completed === true ? "crossed-line" : ""
-						} todo-txt floated`}
-						style={{ fontSize: "23px" }}
-					>
-						{todo.todo}
-					</p>
-				</div>
-			</div>
+            >
+					{renderEditDeleteBtns(todo)}
+					<div className=" content">
+						{renderCheckBtn(todo)}
+						<p
+							className={`${
+								todo.completed === true ? "crossed-line" : ""
+							} todo-txt floated`}
+							style={{ fontSize: "23px" }}
+						>
+							{todo.todo}
+						</p>
+					</div>
+			</motion.div>			
 		);
 	});
 
@@ -97,7 +103,9 @@ const TodoList = (props) => {
 				isSignedIn === true ? "animated" : ""
 			} ui celled list todo-list`}
 		>
-			{renderList}
+			<AnimatePresence>
+				{renderList}
+			</AnimatePresence>
 		</div>
 	);
 };
